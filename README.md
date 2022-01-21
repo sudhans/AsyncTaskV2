@@ -10,4 +10,12 @@ This project aims to minimize the migration effort.
 The AsyncTaskV2 class presented here has a similar API but internally it uses executors and 
 handlers. For migration, instead of extending AsyncTask, extend AsyncTaskV2.
 
-You will find sample usage inside the sample folder.
+Use the sampleapp for reference.
+
+Differences:
+AsyncTask2 is not strict like the actual AsyncTask in throwing 
+exceptions if the execute() method is called after the asynctask is complete.
+
+Improvements:
+Implement a ThreadFactory, if you would like to give the custom 
+thread names for the executor.
