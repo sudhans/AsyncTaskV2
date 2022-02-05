@@ -1,12 +1,10 @@
 package com.msd.executors;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.msd.asynctask.AsyncTaskV2;
 
@@ -37,14 +35,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private synchronized void startAsyncAction() {
-       if (counterAsyncTask == null) {
-           counterAsyncTask = new CounterAsyncTaskV2(this, counterTextView);
-       } else {
-           counterAsyncTask.cancel(true);
-           counterAsyncTask = new CounterAsyncTaskV2(this, counterTextView);
-       }
-
-       counterAsyncTask.execute(1, 10);
+        if (counterAsyncTask != null) {
+            counterAsyncTask.cancel(true);
+        }
+        counterAsyncTask = new CounterAsyncTaskV2(this, counterTextView);
+        counterAsyncTask.execute(1, 10);
 
     }
 
